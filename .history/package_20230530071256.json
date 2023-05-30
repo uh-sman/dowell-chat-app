@@ -1,5 +1,5 @@
 {
-  "homepage": "https://uh-sman.github.io/dowell-chat-app",
+  "homepage": "https://uh-sman.github.io/UX-Living-Lab-Chat",
   "name": "consistency",
   "version": "0.1.0",
   "private": true,
@@ -29,7 +29,7 @@
   "scripts": {
     "start": "react-scripts start",
     "predeploy": "npm run build",
-    "deploy": "gh-pages -d build -r https://github.com/uh-sman/dowell-chat-app.git",
+    "deploy": "gh-pages -d build -r https://github.com/uh-sman/UX-Living-Lab-Chat.git",
     "build": "react-scripts build",
     "test": "react-scripts test",
     "eject": "react-scripts eject"
