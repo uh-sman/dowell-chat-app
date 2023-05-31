@@ -65,9 +65,12 @@ const ReplyChat = () => {
                     <InputBox input={input} setInput={setInput} />
                   </div>
                 </div>
-                <div className="send_btn">
+                <div
+                  className="container "
+                  style={{ position: "absolute", right: 0, width: "100%" }}
+                >
                   <div className="">
-                    <button className="btn " type="submit">
+                    <button className="btn" type="submit">
                       <FaPaperPlane className="fs-4 text-primary" />
                     </button>
                   </div>

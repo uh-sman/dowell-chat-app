@@ -133,9 +133,6 @@
   /* opacity: 0.8; */
   background: red;
 }
-.send_btn {
-  margin-right: 3rem;
-}
 /* .scrollbar {
   margin-left: 30px;
   float: left;
@@ -181,9 +178,6 @@
   .inputs {
     width: 100%;
   }
-  .input- {
-    width: auto;
-  }
   .inputBody {
     /* align-items: ; */
     width: 100%;
@@ -192,11 +186,8 @@
     gap: 0;
   }
   .replyBody {
-    width: contain;
+    width: auto;
     margin-left: 4rem;
-  }
-  .send_btn {
-    margin-right: 0;
   }
 }
 @media only screen and (min-width: 200px) and (max-width: 500px) {

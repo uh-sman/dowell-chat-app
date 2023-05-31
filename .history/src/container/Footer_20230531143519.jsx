@@ -7,7 +7,7 @@ const Footer = () => {
       style={{ backgroundColor: "white" }}
     >
       {/* Grid container  */}
-      <div class="container p-2"></div>
+      <div class="container p-4"></div>
       {/* Grid container  */}
 
       {/* Copyright  */}

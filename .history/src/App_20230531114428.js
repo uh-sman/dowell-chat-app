@@ -26,9 +26,9 @@ function App() {
         {/* <div className="container-fluid"> */}
         <Container />
         {/* </div> */}
-        {/* <div className=""> */}
-        <Footer />
-        {/* </div> */}
+        <div className="position-static border-top">
+          <Footer />
+        </div>
       </div>
     </AppProvider>
   );

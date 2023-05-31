@@ -3,20 +3,22 @@ import React from "react";
 const Footer = () => {
   return (
     <footer
-      className="text-center text-white fixed-bottom border-top"
+      className="text-center text-white fixed-bottom"
       style={{ backgroundColor: "white" }}
     >
       {/* Grid container  */}
-      <div class="container p-2"></div>
+      <div class="container p-4"></div>
       {/* Grid container  */}
 
       {/* Copyright  */}
       <div
-        className="text-center p-2 text-black"
+        className="text-center p-3 text-black"
         // style={{ backgroundColor: "rgba(0, 0, 0, 0.2)" }}
       >
-        Copyright &copy; 2023 UX Living Lab Chat | Powered by{" "}
-        <a className="text-primary ">Dowell uxlivinglab</a>
+        © 2020 Copyright:
+        <a className="text-white" href="https://mdbootstrap.com/">
+          MDBootstrap.com
+        </a>
       </div>
       {/* Copyright  */}
     </footer>

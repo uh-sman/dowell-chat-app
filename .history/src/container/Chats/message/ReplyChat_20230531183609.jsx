@@ -56,7 +56,7 @@ const ReplyChat = () => {
     <div className="">
       <div className="">
         <div class="border d-flex replyBody">
-          <div class="card-body">
+          <div class="">
             <form action="" onSubmit={handleSubmit}>
               <div className="d-flex align-items-center justify-content-between container-lg">
                 <div className="d-flex gap-2  my-3">
@@ -65,7 +65,7 @@ const ReplyChat = () => {
                     <InputBox input={input} setInput={setInput} />
                   </div>
                 </div>
-                <div className="send_btn">
+                <div className="">
                   <div className="">
                     <button className="btn " type="submit">
                       <FaPaperPlane className="fs-4 text-primary" />

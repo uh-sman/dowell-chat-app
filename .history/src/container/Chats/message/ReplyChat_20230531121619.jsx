@@ -58,16 +58,19 @@ const ReplyChat = () => {
         <div class="border d-flex replyBody">
           <div class="card-body">
             <form action="" onSubmit={handleSubmit}>
-              <div className="d-flex align-items-center justify-content-between container-lg">
+              <div className="d-flex align-items-center justify-content-between">
                 <div className="d-flex gap-2  my-3">
                   <img src={user} alt="user-image" className=" image-styles" />
                   <div className="form">
                     <InputBox input={input} setInput={setInput} />
                   </div>
                 </div>
-                <div className="send_btn">
+                <div className="container position-relative">
                   <div className="">
-                    <button className="btn " type="submit">
+                    <button
+                      className="btn position-absolute right-4"
+                      type="submit"
+                    >
                       <FaPaperPlane className="fs-4 text-primary" />
                     </button>
                   </div>
