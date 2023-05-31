@@ -8,9 +8,9 @@ const DetailsSection = ({ title, about }) => {
   console.log(userInfo, "from details section");
   return (
     <div className=" d-none d-md-none d-lg-none d-xl-block d-xxl-block">
-      <div className=" " style={{ width: "auto" }}>
+      <div className=" " style={{ width: "19rem" }}>
         <div className="cardBody">
-          <div className="mx-2 my-4">
+          <div className="mx-3 my-4">
             <div
               className="d-flex gap-5  "
               style={{ borderBottom: "1px solid #7A7A7A" }}
