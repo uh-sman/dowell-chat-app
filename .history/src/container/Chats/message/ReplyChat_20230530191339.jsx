@@ -58,8 +58,8 @@ const ReplyChat = () => {
         <div class="border d-flex replyBody">
           <div class="card-body">
             <form action="" onSubmit={handleSubmit}>
-              <div className="d-flex align-items-center justify-content-around">
-                <div className="d-flex gap-2  my-3">
+              <div className="d-flex align-items-center justify-content-evenly mx-3">
+                <div className="d-flex gap-4  my-3">
                   <img src={user} alt="user-image" className=" image-styles" />
                   <div className="form">
                     <InputBox input={input} setInput={setInput} />

@@ -7,7 +7,7 @@ const Buttons = ({ onSetChatHeader }) => {
   const { productList, click, setClick, setChatHeader } =
     useContext(ProductContext);
   console.log(productList);
-  const [isActive, setIsActive] = useState("");
+  const [isActive, setIsActive] = useState(false);
   const [active, setActive] = useState();
   const buttonStyles = (title) => {
     switch (title) {
@@ -82,8 +82,8 @@ const Buttons = ({ onSetChatHeader }) => {
       case "Login":
         return {
           // backgroundColor: "#90e7b5",
-          // backgroundColor: "white",
-          opacity: "0.8",
+          backgroundColor: "white",
+          // opacity: "0.8",
         };
       case "Extension":
         return {
@@ -118,25 +118,25 @@ const Buttons = ({ onSetChatHeader }) => {
         <div className="d-flex flex-nowrap gap-3  text-nowrap py-3" id="scroll">
           {productList &&
             productList.map((title, i) => {
-              const { backgroundColor, color, border, outline } =
+              const { backgroundColor, color, border, outline, opacity } =
                 buttonStyles(title) ?? {};
-              const { opacity } = style(title) ?? {};
+              // const { opacity } = buttonClick(title) ?? {};
               return (
-                <button
+                <NavLink
                   key={title}
                   type="button"
-                  aria-pressed="true"
-                  className={`btn btn-md ${isActive == title && "opacity-50"}`}
-                  // className={`btn btn-md ${isActive == title ? "active" : ""}`}
+                  // className={`btn btn-md ${isActive == title && "active"}`}
+                  className={`btn btn-md ${isActive == title ? "active" : ""}`}
                   style={{
                     backgroundColor,
                     color,
                     border,
-                    // outline,
+                    outline,
+                    style,
                   }}
                   onClick={(e) => {
                     handleClick(title);
-                    setIsActive(title);
+                    setIsActive(console.log(title));
                   }}
                 >
                   {title}
@@ -148,7 +148,7 @@ const Buttons = ({ onSetChatHeader }) => {
                       11
                     </span>
                   )}
-                </button>
+                </NavLink>
               );
             })}
         </div>

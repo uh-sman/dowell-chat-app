@@ -126,7 +126,9 @@ const Buttons = ({ onSetChatHeader }) => {
                   key={title}
                   type="button"
                   aria-pressed="true"
-                  className={`btn btn-md ${isActive == title && "opacity-50"}`}
+                  className={`btn btn-md ${
+                    isActive == title && "bg-white border"
+                  }`}
                   // className={`btn btn-md ${isActive == title ? "active" : ""}`}
                   style={{
                     backgroundColor,

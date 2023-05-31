@@ -18,9 +18,7 @@
   /* list-style: none; */
   font-family: "Archivo", sans-serif;
 }
-.app-container {
-  max-height: 100vh;
-}
+
 .header {
   color: var(--header-color);
   font-family: "Archivo", sans-serif;
@@ -131,7 +129,8 @@
 }
 .active {
   /* opacity: 0.8; */
-  background: red;
+  background-color: white;
+  color: black;
 }
 /* .scrollbar {
   margin-left: 30px;
@@ -163,11 +162,7 @@
 #style-3::-webkit-scrollbar-thumb {
   background-color: #000000;
 } */
-@media only screen and (min-width: 900px) {
-  .app-container {
-    max-height: 100vh;
-  }
-}
+
 @media only screen and (min-width: 200px) and (max-width: 900px) {
   .button4 {
     display: block;

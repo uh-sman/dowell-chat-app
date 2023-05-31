@@ -18,9 +18,7 @@
   /* list-style: none; */
   font-family: "Archivo", sans-serif;
 }
-.app-container {
-  max-height: 100vh;
-}
+
 .header {
   color: var(--header-color);
   font-family: "Archivo", sans-serif;
@@ -129,10 +127,6 @@
   /* background-color: rgba(57, 192, 237, 0.2); */
   color: white;
 }
-.active {
-  /* opacity: 0.8; */
-  background: red;
-}
 /* .scrollbar {
   margin-left: 30px;
   float: left;
@@ -163,11 +157,7 @@
 #style-3::-webkit-scrollbar-thumb {
   background-color: #000000;
 } */
-@media only screen and (min-width: 900px) {
-  .app-container {
-    max-height: 100vh;
-  }
-}
+
 @media only screen and (min-width: 200px) and (max-width: 900px) {
   .button4 {
     display: block;
@@ -214,11 +204,11 @@
   margin-bottom: 2rem;
 }
 
-/* .zoom {
-  zoom: 150%;
-  -moz-transform: scale(0.8);
+.zoom {
+  zoom: 200%;
+  -moz-transform: scale(1);
   -webkit-transform: scale(0.5);
   -o-transform: scale(0.5);
   -ms-transform: scale(0.5);
   transform: scale(0.5);
-} */
+}

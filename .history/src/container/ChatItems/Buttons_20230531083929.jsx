@@ -7,7 +7,7 @@ const Buttons = ({ onSetChatHeader }) => {
   const { productList, click, setClick, setChatHeader } =
     useContext(ProductContext);
   console.log(productList);
-  const [isActive, setIsActive] = useState("");
+  const [isActive, setIsActive] = useState(false);
   const [active, setActive] = useState();
   const buttonStyles = (title) => {
     switch (title) {
@@ -126,17 +126,17 @@ const Buttons = ({ onSetChatHeader }) => {
                   key={title}
                   type="button"
                   aria-pressed="true"
-                  className={`btn btn-md ${isActive == title && "opacity-50"}`}
-                  // className={`btn btn-md ${isActive == title ? "active" : ""}`}
+                  // className={`btn btn-md ${isActive == title && "active"}`}
+                  className={`btn btn-md ${isActive == title ? "active" : ""}`}
                   style={{
                     backgroundColor,
                     color,
                     border,
-                    // outline,
+                    outline,
                   }}
                   onClick={(e) => {
                     handleClick(title);
-                    setIsActive(title);
+                    setIsActive(console.log("this is the", title));
                   }}
                 >
                   {title}

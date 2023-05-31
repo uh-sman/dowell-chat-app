@@ -19,7 +19,7 @@
   font-family: "Archivo", sans-serif;
 }
 .app-container {
-  max-height: 100vh;
+  min-height: max-content;
 }
 .header {
   color: var(--header-color);
@@ -129,9 +129,10 @@
   /* background-color: rgba(57, 192, 237, 0.2); */
   color: white;
 }
-.active {
+a.active {
   /* opacity: 0.8; */
-  background: red;
+  background-color: white;
+  color: black;
 }
 /* .scrollbar {
   margin-left: 30px;
@@ -163,11 +164,7 @@
 #style-3::-webkit-scrollbar-thumb {
   background-color: #000000;
 } */
-@media only screen and (min-width: 900px) {
-  .app-container {
-    max-height: 100vh;
-  }
-}
+
 @media only screen and (min-width: 200px) and (max-width: 900px) {
   .button4 {
     display: block;

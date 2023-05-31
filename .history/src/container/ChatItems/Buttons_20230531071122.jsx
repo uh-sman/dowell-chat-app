@@ -2,13 +2,11 @@ import { useEffect, useContext, useState } from "react";
 import "./button.css";
 import { AppProvider } from "../ContextProvider/DataContext";
 import ProductContext from "../ContextProvider/DataContext";
-import { NavLink } from "react-router-dom";
 const Buttons = ({ onSetChatHeader }) => {
   const { productList, click, setClick, setChatHeader } =
     useContext(ProductContext);
   console.log(productList);
-  const [isActive, setIsActive] = useState("");
-  const [active, setActive] = useState();
+  const [isActive, setIsActive] = useState(false);
   const buttonStyles = (title) => {
     switch (title) {
       case "Login":
@@ -82,8 +80,8 @@ const Buttons = ({ onSetChatHeader }) => {
       case "Login":
         return {
           // backgroundColor: "#90e7b5",
-          // backgroundColor: "white",
-          opacity: "0.8",
+          backgroundColor: "white",
+          // opacity: "0.8",
         };
       case "Extension":
         return {
@@ -102,41 +100,33 @@ const Buttons = ({ onSetChatHeader }) => {
         return null;
     }
   };
-
-  const navlinkstyle = ({ isActive }) => {
-    return {
-      backgroundColor: "white",
-    };
-  };
   const handleClicks = () => {
     handleClick();
   };
-  const activeIndex = -1;
   return (
     <div className="">
       <div className=" d-flex flex-nowrap">
         <div className="d-flex flex-nowrap gap-3  text-nowrap py-3" id="scroll">
           {productList &&
-            productList.map((title, i) => {
-              const { backgroundColor, color, border, outline } =
+            productList.map((title) => {
+              const { backgroundColor, color, border, outline, opacity } =
                 buttonStyles(title) ?? {};
-              const { opacity } = style(title) ?? {};
+              // const { opacity } = buttonClick(title) ?? {};
               return (
                 <button
                   key={title}
                   type="button"
-                  aria-pressed="true"
-                  className={`btn btn-md ${isActive == title && "opacity-50"}`}
-                  // className={`btn btn-md ${isActive == title ? "active" : ""}`}
+                  className={`btn btn-md ${isActive == item && "active"}`}
                   style={{
                     backgroundColor,
                     color,
                     border,
-                    // outline,
+                    outline,
+                    style,
                   }}
                   onClick={(e) => {
                     handleClick(title);
-                    setIsActive(title);
+                    setIsActive(item);
                   }}
                 >
                   {title}

@@ -19,7 +19,7 @@
   font-family: "Archivo", sans-serif;
 }
 .app-container {
-  max-height: 100vh;
+  min-height: max-content;
 }
 .header {
   color: var(--header-color);
@@ -163,7 +163,7 @@
 #style-3::-webkit-scrollbar-thumb {
   background-color: #000000;
 } */
-@media only screen and (min-width: 900px) {
+@media only screen and (min-width: 900px) and (max-width: 1446px) {
   .app-container {
     max-height: 100vh;
   }
