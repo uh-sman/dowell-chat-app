@@ -134,9 +134,9 @@
   background: red;
 }
 .send_btn {
-  margin-right: 2.1rem;
-  /* position: absolute;
-  left: 65%; */
+  margin-right: 3rem;
+  position: absolute;
+  left: 65%;
 }
 /* .scrollbar {
   margin-left: 30px;
