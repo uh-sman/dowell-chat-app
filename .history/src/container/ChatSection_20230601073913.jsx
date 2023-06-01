@@ -12,7 +12,7 @@ const ChatSection = () => {
 
   const onSetChatHeader = (header) => setChatHeader(header);
   return (
-    <div className="w-100">
+    <div className=" w-100">
       {/* <ChatHeader /> */}
       <ChatHeader onSetChatHeader={onSetChatHeader} />
       {/* chats come here */}
