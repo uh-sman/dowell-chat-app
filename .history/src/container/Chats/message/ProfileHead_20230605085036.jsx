@@ -30,7 +30,7 @@ const ProfileHead = ({ chatHeader }) => {
                   // position: "absolute",
                   height: "7px",
                   width: "7px",
-                  marginRight: "4px",
+                  marginRight: "10px",
                   // marginRight: "66.2vw",
                   // left: "",
                   // marginLeft: "2.7rem",

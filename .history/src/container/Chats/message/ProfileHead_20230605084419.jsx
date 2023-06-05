@@ -18,19 +18,14 @@ const ProfileHead = ({ chatHeader }) => {
         <div className="w-full d-flex gap-3 align-items-center border-bottom my-0 my-md-0 my-lg-0 my-xl-0 my-xxl-0 justify-content-between">
           <figure className="d-flex gap-3 align-items-center">
             <div className="position-relative">
-              <img
-                src={user}
-                className=" rounded-circle"
-                width="60px"
-                height="60px"
-              />
+              <img src={user} className=" image-style" />
               <small
-                className="bg-success rounded position-absolute end-0 top-50 mt-3"
+                className="bg-success rounded position-absolute end-0 top-25"
                 style={{
                   // position: "absolute",
                   height: "7px",
                   width: "7px",
-                  marginRight: "4px",
+                  // marginRight: "66.2vw",
                   // marginRight: "66.2vw",
                   // left: "",
                   // marginLeft: "2.7rem",
