@@ -60,7 +60,7 @@ const ReplyChat = () => {
   };
   return (
     <div className="text-black mb-5 mb-md-5 mb-lg-0 mb-xl-0 mb-xxl-0">
-      <div className="card py-2 ms-2 w-100 " style={{ height: "20vh" }}>
+      <div className="card py-2 ms-2 w-100 " style={{ height: "30vh" }}>
         <div className="card-body p-1 " onSubmit={handleSubmit}>
           <div className="d-flex w-100 justify-content-between">
             <InputBox input={input} setInput={setInput} />
