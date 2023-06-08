@@ -1,5 +1,4 @@
 import "./App.css";
-import axios from "axios";
 import { Tooltip } from "react-tooltip";
 import {
   Routes,
@@ -31,22 +30,11 @@ function App() {
     const currentParams = Object.fromEntries([...searchParams]);
     console.log(currentParams);
     setSearchParams({
-      // sort: "name",
-      // order: "ascending",
+      sort: "name",
+      order: "ascending",
       session_id: "5p8do0ht7no4gyjo0w2984o4vj5dc2hs",
     });
   }, [searchParams]);
-  useEffect(() => {
-    const getSessionId = async () => {
-      const res = await axios.post(
-        "https://100093.pythonanywhere.com/api/userinfo/",
-        searchParams
-      );
-      console.log("res.data", res);
-    };
-    getSessionId();
-  }, []);
-  console.log("searchParams", searchParams);
   // function handleSubmit(e) {
   //   e.preventDefault();
 

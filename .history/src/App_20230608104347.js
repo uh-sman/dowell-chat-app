@@ -1,5 +1,4 @@
 import "./App.css";
-import axios from "axios";
 import { Tooltip } from "react-tooltip";
 import {
   Routes,
@@ -38,15 +37,13 @@ function App() {
   }, [searchParams]);
   useEffect(() => {
     const getSessionId = async () => {
-      const res = await axios.post(
+      const res = axios.post(
         "https://100093.pythonanywhere.com/api/userinfo/",
         searchParams
       );
-      console.log("res.data", res);
+      console.log(res?.data);
     };
-    getSessionId();
   }, []);
-  console.log("searchParams", searchParams);
   // function handleSubmit(e) {
   //   e.preventDefault();
 

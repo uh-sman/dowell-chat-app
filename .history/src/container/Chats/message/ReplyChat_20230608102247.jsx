@@ -62,7 +62,7 @@ const ReplyChat = () => {
     <div className="text-black mb-5 mb-md-5 mb-lg-5 mb-xl-5 mb-xxl-5">
       <div
         className="card py-2 ms-2 w-100 "
-        style={{ height: "165px", maxWidth: "750px" }}
+        style={{ height: "165px", maxWidth: "350px" }}
       >
         <div className="card-body p-1 " onSubmit={handleSubmit}>
           <div className="d-flex w-100 justify-content-between">

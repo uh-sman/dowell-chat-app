@@ -38,7 +38,7 @@ function App() {
   }, [searchParams]);
   useEffect(() => {
     const getSessionId = async () => {
-      const res = await axios.post(
+      const res = axios.post(
         "https://100093.pythonanywhere.com/api/userinfo/",
         searchParams
       );
