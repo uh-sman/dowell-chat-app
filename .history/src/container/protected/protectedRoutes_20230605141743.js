@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
-import ProductContext from "../ContextProvider/DataContext";
+
 // const useAuth = () => {
 //   const user = { loggedIn: localStorage.getItem("tokenId") };
 //   const user = { token: false };
@@ -8,9 +7,7 @@ import ProductContext from "../ContextProvider/DataContext";
 // };
 
 const ProtectedRoutes = () => {
-  const { sessionId } = useContext(ProductContext);
-  // const
-  let isAuth = { token: true };
+  let isAuth = { token: false };
   if (!isAuth.token)
     return (window.location = "https://100014.pythonanywhere.com/");
 
@@ -18,3 +15,18 @@ const ProtectedRoutes = () => {
 };
 
 export default ProtectedRoutes;
+
+// const ProtectedRoutes = () => {
+//   let isAuth = { token: false };
+
+//   return isAuth.token ? (
+//     <Outlet />
+//   ) : (
+//     <Navigate to="/https://100014.pythonanywhere.com/" />
+//     <Navigate
+//       to={{ pathname: "*/https://100014.pythonanywhere.com/" }}
+
+//     />
+
+//   );
+// };

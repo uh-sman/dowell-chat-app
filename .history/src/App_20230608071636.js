@@ -13,35 +13,21 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import { AppProvider } from "./container/ContextProvider/DataContext";
 import ProtectedRoutes from "./container/protected/protectedRoutes";
 import Home from "./container/home";
-import { useEffect } from "react";
 function App() {
   let [searchParams, setSearchParams] = useSearchParams();
-  // let [searchParams] = useSearchParams();
-  console.log(searchParams);
   // const date = new Date();
   // console.log("date", date);
-  // for (const entry of searchParams.entries()) {
-  //   const [param, value] = entry;
-  // }
-  // console.log([...searchParams]);
-  const params = Object.fromEntries([...searchParams]);
-  console.log("mounted", params);
-  useEffect(() => {
-    const currentParams = Object.fromEntries([...searchParams]);
-    console.log(currentParams);
-    setSearchParams({ sort: "name", order: "ascending" });
-  }, [searchParams]);
-  // function handleSubmit(e) {
-  //   e.preventDefault();
+  function handleSubmit(e) {
+    e.preventDefault();
 
-  //   let params = serializeFormQuery(e.target);
-  //   setSearchParams(params);
-  // }
+    let params = serializeFormQuery(e.target);
+    setSearchParams(params);
+  }
   return (
     <div className="container-lg w-100 ">
       <AppProvider>
         <Routes>
-          <Route element={<ProtectedRoutes />}>
+          <Route element={<ProtectedRoutes />} onSubmit={handleSubmit}>
             <Route path="/dowell-chat-app" element={<Home />} />
           </Route>
         </Routes>

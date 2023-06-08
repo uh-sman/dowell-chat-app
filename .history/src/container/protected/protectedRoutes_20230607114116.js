@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext } from "";
 import { Link, Navigate, Outlet } from "react-router-dom";
 import ProductContext from "../ContextProvider/DataContext";
 // const useAuth = () => {
@@ -8,7 +8,7 @@ import ProductContext from "../ContextProvider/DataContext";
 // };
 
 const ProtectedRoutes = () => {
-  const { sessionId } = useContext(ProductContext);
+  const { sessionId } = useContext();
   // const
   let isAuth = { token: true };
   if (!isAuth.token)

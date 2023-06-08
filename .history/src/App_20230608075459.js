@@ -15,21 +15,19 @@ import ProtectedRoutes from "./container/protected/protectedRoutes";
 import Home from "./container/home";
 import { useEffect } from "react";
 function App() {
-  let [searchParams, setSearchParams] = useSearchParams();
-  // let [searchParams] = useSearchParams();
+  // let [searchParams, setSearchParams] = useSearchParams();
+  let [searchParams] = useSearchParams();
   console.log(searchParams);
   // const date = new Date();
   // console.log("date", date);
-  // for (const entry of searchParams.entries()) {
-  //   const [param, value] = entry;
-  // }
-  // console.log([...searchParams]);
-  const params = Object.fromEntries([...searchParams]);
-  console.log("mounted", params);
+  for (const entry of searchParams.entries()) {
+    const [param, value] = entry;
+  }
+  console.log([...searchParams]);
+  console.log(Object.fromEntries([...searchParams]));
   useEffect(() => {
     const currentParams = Object.fromEntries([...searchParams]);
     console.log(currentParams);
-    setSearchParams({ sort: "name", order: "ascending" });
   }, [searchParams]);
   // function handleSubmit(e) {
   //   e.preventDefault();

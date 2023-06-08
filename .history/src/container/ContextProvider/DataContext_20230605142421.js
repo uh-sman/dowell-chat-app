@@ -204,7 +204,6 @@ export const AppProvider = ({ children }) => {
         // handleSendMessage,
         getMessages,
         setData,
-        sessionId,
         // getRooms,
       }}
     >

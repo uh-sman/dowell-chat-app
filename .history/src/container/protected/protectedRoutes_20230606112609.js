@@ -1,6 +1,5 @@
-import { useContext } from "react";
 import { Link, Navigate, Outlet } from "react-router-dom";
-import ProductContext from "../ContextProvider/DataContext";
+
 // const useAuth = () => {
 //   const user = { loggedIn: localStorage.getItem("tokenId") };
 //   const user = { token: false };
@@ -8,7 +7,6 @@ import ProductContext from "../ContextProvider/DataContext";
 // };
 
 const ProtectedRoutes = () => {
-  const { sessionId } = useContext(ProductContext);
   // const
   let isAuth = { token: true };
   if (!isAuth.token)
