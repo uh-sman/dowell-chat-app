@@ -47,23 +47,12 @@ export const AppProvider = ({ children }) => {
       );
       console.log("res.data", res);
       setOrgId(res?.data?.selected_product?.orgid);
-      setUserInfo(res?.data?.userinfo);
       // console.log("organizations id", res?.data?.selected_product?.orgid);
     };
     getSessionId();
   }, []);
   console.log("searchParams", searchParams);
   console.log(`this is the organization ${orgId}`);
-
-  useEffect(() => {
-    const createRooms = async () => {
-      const res = await axios.get(
-        "https://100096.pythonanywhere.com/dowell-api/create-room/Login/?e0swj8kzqq3h87hagqs2b1i7kp1yqerw"
-      );
-      console.log("createRoom response", res, { status: 200 });
-    };
-    createRooms();
-  }, []);
 
   // console.log("chatHeader from context", chatHeader);
   // const onSetChatHeader = (header) => setChatHeader(header);
@@ -95,7 +84,7 @@ export const AppProvider = ({ children }) => {
         // console.log(`res.data from messages${chatHeader}`, res?.data?.messages);
         // console.log(`res.data from messages${chatHeader}`, res?.data);
         // console.log("response from get rooms", res?.data);
-        setRooms(res?.data);
+        // setRooms(res?.data);
         // setMessages(res)
         setRoom(res?.data);
       } catch (error) {
@@ -103,7 +92,7 @@ export const AppProvider = ({ children }) => {
       }
     };
     getRooms();
-  }, [chatHeader]);
+  }, [chatHeader, orgId]);
   // const getMessage = async (room_Id) => {
   //   try {
   //     const BASE_URL = `https://100096.pythonanywhere.com/room_list/${chatHeader}/644f9d104baba28710c128e3/`;
@@ -137,7 +126,7 @@ export const AppProvider = ({ children }) => {
   // }, []);
 
   useEffect(() => {
-    const url = `https://100096.pythonanywhere.com/send/${room_Id}/`;
+    const url = `https://100096.pythonanywhere.com/send_messaage/${room_Id}/`;
     const getMessages = async () => {
       const res = await axios.get(url);
       console.log("response", res);

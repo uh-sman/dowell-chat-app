@@ -11,7 +11,7 @@ const ProtectedRoutes = () => {
   const { searchParams } = useContext(ProductContext);
   // const
   // let isAuth = { token: true };
-  if (!searchParams)
+  if (searchParams)
     return (window.location = "https://100014.pythonanywhere.com/");
 
   return <Outlet />;

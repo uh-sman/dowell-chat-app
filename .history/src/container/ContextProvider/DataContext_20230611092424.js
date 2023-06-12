@@ -62,7 +62,6 @@ export const AppProvider = ({ children }) => {
       );
       console.log("createRoom response", res, { status: 200 });
     };
-    createRooms();
   }, []);
 
   // console.log("chatHeader from context", chatHeader);

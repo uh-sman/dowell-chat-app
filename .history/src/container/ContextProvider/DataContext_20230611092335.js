@@ -60,9 +60,8 @@ export const AppProvider = ({ children }) => {
       const res = await axios.get(
         "https://100096.pythonanywhere.com/dowell-api/create-room/Login/?e0swj8kzqq3h87hagqs2b1i7kp1yqerw"
       );
-      console.log("createRoom response", res, { status: 200 });
+      console.log(res, { status: 200 });
     };
-    createRooms();
   }, []);
 
   // console.log("chatHeader from context", chatHeader);
