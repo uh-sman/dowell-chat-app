@@ -28,8 +28,8 @@ const Rooms = ({ results }) => {
         className="d-flex flex-column justify-content-start gap-4  rounded"
         // onClick={() => console.log("clicked")}
       >
-        {rooms?.rooms?.length <= 0 ? (
-          <h1 className="text-muted fs-5">No Rooms available</h1>
+        {rooms.length <= 0 ? (
+          <h1>No Rooms available</h1>
         ) : (
           rooms?.rooms?.map(({ room_id, room_name }) => {
             return (

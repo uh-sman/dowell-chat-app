@@ -29,7 +29,7 @@ const Rooms = ({ results }) => {
         // onClick={() => console.log("clicked")}
       >
         {rooms?.rooms?.length <= 0 ? (
-          <h1 className="text-muted fs-5">No Rooms available</h1>
+          <h1 className="text-muted fs-6">No Rooms available</h1>
         ) : (
           rooms?.rooms?.map(({ room_id, room_name }) => {
             return (

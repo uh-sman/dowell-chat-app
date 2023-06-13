@@ -36,7 +36,11 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const currentParams = Object.fromEntries([...searchParams]);
     console.log(currentParams);
-    setSearchParams(sessionId);
+    setSearchParams({
+      // sort: "name",
+      // order: "ascending",
+      session_id: "5p8do0ht7no4gyjo0w2984o4vj5dc2hs",
+    });
   }, [searchParams, setSearchParams]);
   useEffect(() => {
     const getSessionId = async () => {
@@ -50,19 +54,19 @@ export const AppProvider = ({ children }) => {
       // console.log("organizations id", res?.data?.selected_product?.orgid);
     };
     getSessionId();
-  }, [searchParams]);
+  }, []);
   console.log("searchParams", searchParams);
   console.log(`this is the organization ${orgId}`);
 
-  // useEffect(() => {
-  //   const createRooms = async () => {
-  //     const res = await axios.get(
-  //       `https://100096.pythonanywhere.com/dowell-api/create-room/Login/?${sessionId}`
-  //     );
-  //     console.log("createRoom response", res, res.status);
-  //   };
-  //   createRooms();
-  // }, [sessionId]);
+  useEffect(() => {
+    const createRooms = async () => {
+      const res = await axios.get(
+        `https://100096.pythonanywhere.com/dowell-api/create-room/Login/?${sessionId}`
+      );
+      console.log("createRoom response", res, res.status);
+    };
+    createRooms();
+  }, [sessionId]);
 
   // console.log("chatHeader from context", chatHeader);
   // const onSetChatHeader = (header) => setChatHeader(header);
@@ -133,15 +137,15 @@ export const AppProvider = ({ children }) => {
   //   getInfo();
   // }, []);
 
-  useEffect(() => {
-    const url = `https://100096.pythonanywhere.com/send_message/${room_Id}/`;
-    const getMessages = async () => {
-      const res = await axios.get(url);
-      console.log("response", res?.data);
-      setMessages(res?.data);
-    };
-    getMessages();
-  }, [room_Id]);
+  // useEffect(() => {
+  //   const url = `https://100096.pythonanywhere.com/send/${room_Id}/`;
+  //   const getMessages = async () => {
+  //     const res = await axios.get(url);
+  //     console.log("response", res);
+  //     setMessages(res?.data);
+  //   };
+  //   getMessages();
+  // }, [room_Id]);
   // const url = "https://100093.pythonanywhere.com/api/userinfo/";
   // useEffect(() => {
   //   const getUserInfo = async () => {
@@ -194,20 +198,20 @@ export const AppProvider = ({ children }) => {
     clientProductList();
   }, []);
   // useEffect(() => {
-  // const getMessages = async (message) => {
-  //   try {
-  //     const res = await axios.post(
-  //       `https://100096.pythonanywhere.com/send_message/42/`,
-  //       {
-  //         message,
-  //       }
-  //     );
-  //     console.log(res.data, "response");
-  //     setMessage(res.data);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
+  const getMessages = async (message) => {
+    try {
+      const res = await axios.post(
+        `https://100096.pythonanywhere.com/send_message/42/`,
+        {
+          message,
+        }
+      );
+      console.log(res.data, "response");
+      setMessage(res.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   // useEffect(() => {
   //   const getSentMessages = async () => {
@@ -247,7 +251,7 @@ export const AppProvider = ({ children }) => {
         room_Id,
         userInfo,
         // handleSendMessage,
-        // getMessages,
+        getMessages,
         setData,
         sessionId,
         searchParams,

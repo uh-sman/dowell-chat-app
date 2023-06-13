@@ -38,9 +38,10 @@ const Message = ({ message }) => {
         paddingTop: "1.5rem",
       }}
     >
-      {messages?.messages?.length && rooms?.rooms?.length <= 0
+      {messages?.messages <= 0
         ? null
-        : messages?.messages?.map(({ message, id, side }) => {
+        : messages &&
+          messages?.messages?.map(({ message, id, side }) => {
             return (
               <div
                 key={id}

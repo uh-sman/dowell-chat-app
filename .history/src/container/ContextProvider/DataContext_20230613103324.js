@@ -137,7 +137,7 @@ export const AppProvider = ({ children }) => {
     const url = `https://100096.pythonanywhere.com/send_message/${room_Id}/`;
     const getMessages = async () => {
       const res = await axios.get(url);
-      console.log("response", res?.data);
+      console.log("response", res);
       setMessages(res?.data);
     };
     getMessages();

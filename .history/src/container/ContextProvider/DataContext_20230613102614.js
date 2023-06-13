@@ -134,10 +134,10 @@ export const AppProvider = ({ children }) => {
   // }, []);
 
   useEffect(() => {
-    const url = `https://100096.pythonanywhere.com/send_message/${room_Id}/`;
+    const url = `https://100096.pythonanywhere.com/send/${room_Id}/`;
     const getMessages = async () => {
       const res = await axios.get(url);
-      console.log("response", res?.data);
+      console.log("response", res);
       setMessages(res?.data);
     };
     getMessages();
@@ -194,20 +194,20 @@ export const AppProvider = ({ children }) => {
     clientProductList();
   }, []);
   // useEffect(() => {
-  // const getMessages = async (message) => {
-  //   try {
-  //     const res = await axios.post(
-  //       `https://100096.pythonanywhere.com/send_message/42/`,
-  //       {
-  //         message,
-  //       }
-  //     );
-  //     console.log(res.data, "response");
-  //     setMessage(res.data);
-  //   } catch (error) {
-  //     console.log(error.message);
-  //   }
-  // };
+  const getMessages = async (message) => {
+    try {
+      const res = await axios.post(
+        `https://100096.pythonanywhere.com/send_message/42/`,
+        {
+          message,
+        }
+      );
+      console.log(res.data, "response");
+      setMessage(res.data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
 
   // useEffect(() => {
   //   const getSentMessages = async () => {
@@ -247,7 +247,7 @@ export const AppProvider = ({ children }) => {
         room_Id,
         userInfo,
         // handleSendMessage,
-        // getMessages,
+        getMessages,
         setData,
         sessionId,
         searchParams,
