@@ -12,7 +12,6 @@ const Rooms = ({ results }) => {
     room_Id,
     getRooms,
     loading,
-    memorizedRooms,
   } = useContext(ProductContext);
   // console.log("results", rooms);
   const [roomId, setRoomId] = useState();
@@ -33,7 +32,7 @@ const Rooms = ({ results }) => {
         className="d-flex flex-column justify-content-start gap-4  rounded"
         // onClick={() => console.log("clicked")}
       >
-        {memorizedRooms?.rooms?.length <= 0 ? (
+        {rooms?.rooms?.length <= 0 ? (
           <h1 className="text-muted fs-5">No Rooms available</h1>
         ) : (
           rooms?.rooms?.map(({ room_id, room_name }) => {

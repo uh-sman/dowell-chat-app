@@ -42,7 +42,7 @@ const Message = ({ message }) => {
     >
       {messages?.messages?.length && rooms?.rooms?.length <= 0
         ? null
-        : memorizedMessages?.messages?.map(({ message, id, side }) => {
+        : messages?.messages?.map(({ message, id, side }) => {
             return (
               <div
                 key={id}

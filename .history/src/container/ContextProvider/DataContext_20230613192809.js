@@ -1,6 +1,7 @@
-import { createContext, useEffect, useState, useMemo } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
+import { useMemo } from "react";
 
 const ProductContext = createContext();
 
@@ -33,7 +34,7 @@ export const AppProvider = ({ children }) => {
     const currentParams = Object.fromEntries([...searchParams]);
     console.log(currentParams);
     setSearchParams(sessionId);
-  });
+  }, [searchParams, setSearchParams]);
   useEffect(() => {
     const getSessionId = async () => {
       const res = await axios.post(
@@ -43,6 +44,7 @@ export const AppProvider = ({ children }) => {
       // console.log("res.data", res);
       setOrgId(res?.data?.selected_product?.orgid);
       setUserInfo(res?.data?.userinfo);
+      // console.log("organizations id", res?.data?.selected_product?.orgid);
     };
     getSessionId();
   }, [searchParams]);
@@ -91,23 +93,21 @@ export const AppProvider = ({ children }) => {
     getMessages();
   }, [room_Id]);
 
-  //create a usememo for the messages data
-  const memorizedMessages = useMemo(() => messages, [messages]);
-  const memorizedRooms = useMemo(() => rooms, [rooms]);
-  console.log("memoized", memorizedMessages, memorizedRooms);
-  // useEffect(() => {
-  //   const getSessionId = async () => {
-  //     try {
-
-  //       const res = await axios.get("https://100096.pythonanywhere.com/");
-
-  //       console.log(res);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   };
-  //   getSessionId();
-  // }, []);
+  useEffect(() => {
+    const getSessionId = async () => {
+      try {
+        // const res = await axios.post(
+        //   "https://100096.pythonanywhere.com/send_message/42"
+        // );
+        const res = await axios.get("https://100096.pythonanywhere.com/");
+        // roomId would be placed in the url
+        console.log(res);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getSessionId();
+  }, []);
 
   useEffect(() => {
     axios
@@ -148,11 +148,10 @@ export const AppProvider = ({ children }) => {
         setRoom_Id,
         room_Id,
         userInfo,
+        setData,
         sessionId,
         searchParams,
         loading,
-        memorizedMessages,
-        memorizedRooms,
       }}
     >
       {children}

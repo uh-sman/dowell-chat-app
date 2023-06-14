@@ -6,8 +6,7 @@ import ProductContext from "../../ContextProvider/DataContext";
 import { Loader } from "../../spinner/loader";
 const Message = ({ message }) => {
   // const [message, setMessage] = useState(true);
-  const { rooms, messages, loading, memorizedMessages } =
-    useContext(ProductContext);
+  const { rooms, messages, loading } = useContext(ProductContext);
   const { id } = messages ?? {};
   const messageUser = (id) => {
     switch (id) {
@@ -42,7 +41,7 @@ const Message = ({ message }) => {
     >
       {messages?.messages?.length && rooms?.rooms?.length <= 0
         ? null
-        : memorizedMessages?.messages?.map(({ message, id, side }) => {
+        : messages?.messages?.map(({ message, id, side }) => {
             return (
               <div
                 key={id}

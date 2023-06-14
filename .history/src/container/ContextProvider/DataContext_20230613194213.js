@@ -1,4 +1,4 @@
-import { createContext, useEffect, useState, useMemo } from "react";
+import { createContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
 
@@ -91,23 +91,21 @@ export const AppProvider = ({ children }) => {
     getMessages();
   }, [room_Id]);
 
-  //create a usememo for the messages data
-  const memorizedMessages = useMemo(() => messages, [messages]);
-  const memorizedRooms = useMemo(() => rooms, [rooms]);
-  console.log("memoized", memorizedMessages, memorizedRooms);
-  // useEffect(() => {
-  //   const getSessionId = async () => {
-  //     try {
-
-  //       const res = await axios.get("https://100096.pythonanywhere.com/");
-
-  //       console.log(res);
-  //     } catch (error) {
-  //       console.log(error.message);
-  //     }
-  //   };
-  //   getSessionId();
-  // }, []);
+  useEffect(() => {
+    const getSessionId = async () => {
+      try {
+        // const res = await axios.post(
+        //   "https://100096.pythonanywhere.com/send_message/42"
+        // );
+        const res = await axios.get("https://100096.pythonanywhere.com/");
+        // roomId would be placed in the url
+        console.log(res);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    getSessionId();
+  }, []);
 
   useEffect(() => {
     axios
@@ -151,8 +149,6 @@ export const AppProvider = ({ children }) => {
         sessionId,
         searchParams,
         loading,
-        memorizedMessages,
-        memorizedRooms,
       }}
     >
       {children}

@@ -11,7 +11,6 @@ const ChatIcons = () => {
           className="text-primary fs-6"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Customize"
-          data-tooltip-variant="light"
         >
           <FaClipboardList />
           <Tooltip id="my-tooltip" />
