@@ -41,7 +41,7 @@ const AboutDetails = ({ title, ux }) => {
                 </small>
               </li>
               <li style={{ color: "#94a3b8" }}>
-                <small className="d-flex gap-2 align-items-center">
+                <small>
                   <FaRegEnvelope className="fw-bold fs-6" /> +{" "}
                   <span className="" style={{ fontSize: "13px" }}>
                     {userInfo?.email}

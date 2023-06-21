@@ -41,7 +41,7 @@ const AboutDetails = ({ title, ux }) => {
                 </small>
               </li>
               <li style={{ color: "#94a3b8" }}>
-                <small className="d-flex gap-2 align-items-center">
+                <small>
                   <FaRegEnvelope className="fw-bold fs-6" /> +{" "}
                   <span className="" style={{ fontSize: "13px" }}>
                     {userInfo?.email}
@@ -78,22 +78,30 @@ const AboutDetails = ({ title, ux }) => {
           <div className="">
             <ul>
               <li style={{ color: "#94a3b8" }}>
-                <FaRegThumbsUp className="fw-bold fs-6" />{" "}
-                {userInfo?.dowell_time}
+                <small>
+                  <FaRegThumbsUp className="fw-bold fs-6" />{" "}
+                  {userInfo?.dowell_time}
+                </small>
                 {/* date from the api */}
               </li>
               <li style={{ color: "#94a3b8" }}>
-                <FaBriefcase className="fw-bold fs-6" /> Works at Graphic
-                Designer
+                <small>
+                  <FaBriefcase className="fw-bold fs-6" /> Works at Graphic
+                  Designer
+                </small>
               </li>
               <li style={{ color: "#94a3b8" }}>
-                <FaGraduationCap className="fw-bold fs-4" /> <br /> Studied at
-                Harvard University Cambridge
+                <small>
+                  <FaGraduationCap className="fw-bold fs-4" /> <br /> Studied at
+                  Harvard University Cambridge
+                </small>
                 {/* Place of work from the api */}
               </li>
               <li style={{ color: "#94a3b8" }}>
-                <FaLocationArrow className="fw-bold fs-6" /> From
-                <span> {userInfo?.user_country}</span>
+                <small>
+                  <FaLocationArrow className="fw-bold fs-6" /> From
+                  <span> {userInfo?.user_country}</span>
+                </small>
               </li>
             </ul>
           </div>

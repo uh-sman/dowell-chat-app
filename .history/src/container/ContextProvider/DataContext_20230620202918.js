@@ -84,8 +84,12 @@ export const AppProvider = ({ children }) => {
         // console.log(`res.data from messages${chatHeader}`, res?.data?.messages);
         // console.log(`res.data from messages${chatHeader}`, res?.data);
         // console.log("response from get rooms", res?.data);
-        setRooms(res?.data);
-        setLoading(false);
+        if (loading) {
+          return <Loader />;
+        } else {
+          setLoading(false);
+          return setRooms(res?.data);
+        }
 
         // setMessages(res)
         // setId(rooms?.rooms?.[0]?.userinfo?.session_id);

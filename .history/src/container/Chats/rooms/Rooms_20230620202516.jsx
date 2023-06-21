@@ -34,9 +34,8 @@ const Rooms = ({ results }) => {
       >
         {memorizedRooms?.rooms?.length <= 0 ? (
           <h1 className="text-muted fs-5">No Rooms available</h1>
-        ) : loading ? (
-          <Loader />
         ) : (
+          loading &&
           memorizedRooms?.rooms?.map(({ room_id, room_name }) => {
             return (
               <button

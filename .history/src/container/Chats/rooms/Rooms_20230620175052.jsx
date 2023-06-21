@@ -26,7 +26,9 @@ const Rooms = ({ results }) => {
   // useEffect(() => {
   //   getMessage();
   // }, []);
-  return (
+  return loading ? (
+    <Loader />
+  ) : (
     <section className="my-3">
       <div
         className="d-flex flex-column justify-content-start gap-4  rounded"
@@ -34,8 +36,6 @@ const Rooms = ({ results }) => {
       >
         {memorizedRooms?.rooms?.length <= 0 ? (
           <h1 className="text-muted fs-5">No Rooms available</h1>
-        ) : loading ? (
-          <Loader />
         ) : (
           memorizedRooms?.rooms?.map(({ room_id, room_name }) => {
             return (

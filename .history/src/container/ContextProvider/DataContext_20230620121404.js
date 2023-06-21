@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
-import { Loader } from "../spinner/loader";
 
 const ProductContext = createContext();
 
@@ -19,7 +18,7 @@ export const AppProvider = ({ children }) => {
   const [room_Id, setRoom_Id] = useState("");
   const [roomsId, setRoomsId] = useState();
   const [orgId, setOrgId] = useState("");
-  const [Id, setId] = useState("");
+  const [id, setId] = useState("" || null);
 
   let [searchParams, setSearchParams] = useSearchParams();
 
@@ -44,7 +43,7 @@ export const AppProvider = ({ children }) => {
       );
       // console.log("res.data", res);
       setOrgId(res?.data?.selected_product?.orgid);
-      // setUserInfo(res?.data?.userinfo);
+      setUserInfo(res?.data?.userinfo);
     };
     getSessionId();
   }, [searchParams]);
@@ -53,16 +52,16 @@ export const AppProvider = ({ children }) => {
       const res = await axios.post(
         "https://100093.pythonanywhere.com/api/userinfo/",
         {
-          session_id: Id,
+          session_id: "6g2xeczd094oaf3lmh1fvfpek43otxp8",
         }
       );
       console.log("res.data", res);
       // setOrgId(res?.data?.selected_product?.orgid);
-      setUserInfo(res?.data?.userinfo);
+      // setUserInfo(res?.data?.userinfo);
     };
     getSessionIds();
-  }, [Id]);
-  console.log("id", Id);
+  }, [id]);
+  console.log("id", id);
   // create Room UseEffect
   // useEffect(() => {
   //   const createRooms = async () => {
@@ -85,11 +84,10 @@ export const AppProvider = ({ children }) => {
         // console.log(`res.data from messages${chatHeader}`, res?.data);
         // console.log("response from get rooms", res?.data);
         setRooms(res?.data);
-        setLoading(false);
-
         // setMessages(res)
-        // setId(rooms?.rooms?.[0]?.userinfo?.session_id);
-        // setRoom(res?.data);
+        setId(rooms?.rooms?.[0]?.userinfo?.session_id);
+        setRoom(res?.data);
+        setLoading(false);
       } catch (error) {
         console.error("error", error);
       }
@@ -105,8 +103,7 @@ export const AppProvider = ({ children }) => {
     const getMessages = async () => {
       setLoading(true);
       const res = await axios.get(url);
-      console.log("response", res?.data?.messages?.[0]?.author?.session_id);
-      setId(res?.data?.messages?.[0]?.author?.session_id);
+      // console.log("response", res?.data);
       setMessages(res?.data);
       setLoading(false);
     };

@@ -1,7 +1,6 @@
 import { createContext, useEffect, useState, useMemo } from "react";
 import axios from "axios";
 import { useSearchParams } from "react-router-dom";
-import { Loader } from "../spinner/loader";
 
 const ProductContext = createContext();
 
@@ -52,9 +51,7 @@ export const AppProvider = ({ children }) => {
     const getSessionIds = async () => {
       const res = await axios.post(
         "https://100093.pythonanywhere.com/api/userinfo/",
-        {
-          session_id: Id,
-        }
+        Id
       );
       console.log("res.data", res);
       // setOrgId(res?.data?.selected_product?.orgid);
@@ -85,11 +82,10 @@ export const AppProvider = ({ children }) => {
         // console.log(`res.data from messages${chatHeader}`, res?.data);
         // console.log("response from get rooms", res?.data);
         setRooms(res?.data);
-        setLoading(false);
-
         // setMessages(res)
         // setId(rooms?.rooms?.[0]?.userinfo?.session_id);
-        // setRoom(res?.data);
+        setRoom(res?.data);
+        setLoading(false);
       } catch (error) {
         console.error("error", error);
       }
