@@ -86,9 +86,9 @@ export const AppProvider = ({ children }) => {
       );
       console.log("respomse", res);
     };
-    getNotifications();
+    getNotifications;
   }, []);
-  // console.log(data);
+  console.log(data);
   // create Room UseEffect
   useEffect(() => {
     const createRooms = async () => {

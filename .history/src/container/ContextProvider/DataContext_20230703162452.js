@@ -64,31 +64,16 @@ export const AppProvider = ({ children }) => {
     };
     getSessionIds();
   }, [Id, room_Id]);
-
-  // const getNotifications = async () => {
-  //   const res = await axios.get(
-  //     "https://100092.pythonanywhere.com/api/v1/notifications/products/"
-  //   );
-  //   console.log("respomse", res);
-  // };
-  // const { status, data, error, isLoading } = useQuery(
-  //   {
-  //     queryKey: ["notifications"],
-  //   },
-  //   {
-  //     queryFn: getNotifications,
-  //   }
-  // );
-  useEffect(() => {
-    const getNotifications = async () => {
-      const res = await axios.get(
+  const { status, data, error, isLoading } = useQuery(
+    ["message"],
+    async (res) => {
+      await axios.get(
         "https://100092.pythonanywhere.com/api/v1/notifications/products/"
       );
-      console.log("respomse", res);
-    };
-    getNotifications();
-  }, []);
-  // console.log(data);
+      console.log("response", res);
+    }
+  );
+  console.log(data);
   // create Room UseEffect
   useEffect(() => {
     const createRooms = async () => {
