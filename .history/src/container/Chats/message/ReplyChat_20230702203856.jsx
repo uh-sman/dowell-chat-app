@@ -2,7 +2,6 @@ import { useState, useContext } from "react";
 import user from "../../../assets/avatar.png";
 import axios from "axios";
 import { Tooltip } from "react-tooltip";
-import { toast } from "react-hot-toast";
 import {
   FaRegPaperPlane,
   FaPaperPlane,
@@ -12,7 +11,7 @@ import {
   FaLink,
 } from "react-icons/fa";
 import { HiOutlineEmojiHappy } from "react-icons/hi";
-import { useMutation, useQueryClient } from "react-query";
+import { useMutation } from "react-query";
 import ProductContext from "../../ContextProvider/DataContext";
 import { HiOutlineHandThumbUp, HiHandThumbUp } from "react-icons/hi2";
 import InputBox from "./InputBox";
@@ -34,7 +33,7 @@ const ReplyChat = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setData(input);
-    setData("");
+
     const data = {
       // message: "input",
       message: input,
@@ -42,30 +41,18 @@ const ReplyChat = () => {
       message_type: "text/Image",
       org_id: orgId,
     };
-    mutate(data);
-    // axios.post(
-    //   `https://100096.pythonanywhere.com/send_message/${room_Id}/`,
-    //   data
-    // );
+    axios.post(
+      `https://100096.pythonanywhere.com/send_message/${room_Id}/`,
+      data
+    );
   };
-  const queryClient = useQueryClient();
-  const { mutate } = useMutation("message", {
-    mutationFn: (data) =>
-      axios.post(
-        `https://100096.pythonanywhere.com/send_message/${room_Id}/`,
-        data
-      ),
-    onSuccess: async (res) => {
-      queryClient.invalidateQueries("message");
-      toast.success("sent");
-      console.log("mutated response", res);
-    },
+  const { mutate } = useMutation({
+    mutationFn: handleSubmit,
+    onSuccess: (res) => res,
     onError: (error) => {
       console.log(error);
     },
   });
-
-  let postReq = () => {};
   return (
     <div className="text-black mb-5 mb-md-5 mb-lg-5 mb-xl-5 mb-xxl-5">
       <div

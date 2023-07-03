@@ -3,40 +3,21 @@ import ReplyChat from "./ReplyChat";
 import clsx from "clsx";
 import axios from "axios";
 import male_avatar from "../../../assets/male_avatar.png";
-import { useMutation } from "react-query";
 import ProductContext from "../../ContextProvider/DataContext";
 import { Loader } from "../../spinner/loader";
-import { useQuery } from "react-query";
 const Message = () => {
   const [message, setMessage] = useState();
   const { rooms, messages, loading, memorizedMessages, room_Id } =
     useContext(ProductContext);
-  const url = `https://100096.pythonanywhere.com/send_message/${room_Id}/`;
-  const getRoomMessage = async () => {
-    // setLoading(true);
-    const res = await axios.get(url);
-    // console.log("response", res);
-    return res?.data;
-    // setMessage(res?.data);
-  };
-  // useEffect(() => {
-  //   const url = `https://100096.pythonanywhere.com/send_message/${room_Id}/`;
-  //   const getRoomMessage = async () => {
-  //     // setLoading(true);
-  //     const res = await axios.get(url);
-  //     setMessage(res?.data);
-  //   };
-  //   getRoomMessage();
-  // }, [room_Id]);
-  const { status, data, error, isLoading } = useQuery(
-    ["message", room_Id],
-    () => getRoomMessage(room_Id),
-    [room_Id]
-  );
-  // const { mutate } = useMutation();
-  console.log("data", data);
-  if (isLoading) return <div>Loading</div>;
-  if (error) return <div>Request Failed</div>;
+  useEffect(() => {
+    const url = `https://100096.pythonanywhere.com/send_message/${room_Id}/`;
+    const getRoomMessage = async () => {
+      // setLoading(true);
+      const res = await axios.get(url);
+      setMessage(res?.data);
+    };
+    getRoomMessage();
+  }, [room_Id, () => message]);
   const messageUser = (id) => {
     switch (id) {
       case id === 28:
@@ -68,9 +49,9 @@ const Message = () => {
         paddingTop: "1.5rem",
       }}
     >
-      {data?.messages?.length && rooms?.rooms?.length <= 0
+      {message?.messages?.length && rooms?.rooms?.length <= 0
         ? null
-        : data?.messages?.map(({ message, id, side }) => {
+        : message?.messages?.map(({ message, id, side }) => {
             return (
               <div
                 key={id}
@@ -113,7 +94,6 @@ const Message = () => {
                   </p>
                 </div>
               </div>
-              // [message]
             );
           })}
     </section>

@@ -3,7 +3,6 @@ import ReplyChat from "./ReplyChat";
 import clsx from "clsx";
 import axios from "axios";
 import male_avatar from "../../../assets/male_avatar.png";
-import { useMutation } from "react-query";
 import ProductContext from "../../ContextProvider/DataContext";
 import { Loader } from "../../spinner/loader";
 import { useQuery } from "react-query";
@@ -29,11 +28,11 @@ const Message = () => {
   //   getRoomMessage();
   // }, [room_Id]);
   const { status, data, error, isLoading } = useQuery(
-    ["message", room_Id],
-    () => getRoomMessage(room_Id),
+    "message",
+    getRoomMessage,
+
     [room_Id]
   );
-  // const { mutate } = useMutation();
   console.log("data", data);
   if (isLoading) return <div>Loading</div>;
   if (error) return <div>Request Failed</div>;
@@ -72,48 +71,50 @@ const Message = () => {
         ? null
         : data?.messages?.map(({ message, id, side }) => {
             return (
-              <div
-                key={id}
-                className={
-                  side
-                    ? "d-flex justify-content-end"
-                    : "d-flex justify-content-start"
-                }
-              >
+              (
                 <div
-                  id="chat1"
+                  key={id}
                   className={
                     side
-                      ? "p-3 mb-4 style bg-primary"
-                      : "d-flex align-items-center bg-white text-muted"
+                      ? "d-flex justify-content-end"
+                      : "d-flex justify-content-start"
                   }
-                  style={{
-                    width: "fit-content",
-                    maxWidth: "350px",
-                    // width: "350px",
-                  }}
                 >
-                  {side ? null : (
-                    <img
-                      src={male_avatar}
-                      height="50px"
-                      width="50px"
-                      alt="male_avatar"
-                    />
-                  )}
-                  <p
-                    className="fs-6 small text-start mb-0 text-break"
+                  <div
+                    id="chat1"
+                    className={
+                      side
+                        ? "p-3 mb-4 style bg-primary"
+                        : "d-flex align-items-center bg-white text-muted"
+                    }
                     style={{
-                      // width: "350px",
-                      // width: "fit-content",
+                      width: "fit-content",
                       maxWidth: "350px",
+                      // width: "350px",
                     }}
                   >
-                    {message}
-                  </p>
+                    {side ? null : (
+                      <img
+                        src={male_avatar}
+                        height="50px"
+                        width="50px"
+                        alt="male_avatar"
+                      />
+                    )}
+                    <p
+                      className="fs-6 small text-start mb-0 text-break"
+                      style={{
+                        // width: "350px",
+                        // width: "fit-content",
+                        maxWidth: "350px",
+                      }}
+                    >
+                      {message}
+                    </p>
+                  </div>
                 </div>
-              </div>
-              // [message]
+              ),
+              [message]
             );
           })}
     </section>

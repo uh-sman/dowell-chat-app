@@ -3,7 +3,6 @@ import ReplyChat from "./ReplyChat";
 import clsx from "clsx";
 import axios from "axios";
 import male_avatar from "../../../assets/male_avatar.png";
-import { useMutation } from "react-query";
 import ProductContext from "../../ContextProvider/DataContext";
 import { Loader } from "../../spinner/loader";
 import { useQuery } from "react-query";
@@ -14,7 +13,7 @@ const Message = () => {
   const url = `https://100096.pythonanywhere.com/send_message/${room_Id}/`;
   const getRoomMessage = async () => {
     // setLoading(true);
-    const res = await axios.get(url);
+    const res = await axios.get(url, [room_Id]);
     // console.log("response", res);
     return res?.data;
     // setMessage(res?.data);
@@ -29,11 +28,9 @@ const Message = () => {
   //   getRoomMessage();
   // }, [room_Id]);
   const { status, data, error, isLoading } = useQuery(
-    ["message", room_Id],
-    () => getRoomMessage(room_Id),
-    [room_Id]
+    "message",
+    getRoomMessage
   );
-  // const { mutate } = useMutation();
   console.log("data", data);
   if (isLoading) return <div>Loading</div>;
   if (error) return <div>Request Failed</div>;

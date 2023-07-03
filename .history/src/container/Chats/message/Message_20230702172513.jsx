@@ -33,7 +33,7 @@ const Message = () => {
     () => getRoomMessage(room_Id),
     [room_Id]
   );
-  // const { mutate } = useMutation();
+  const { mutate } = useMutation();
   console.log("data", data);
   if (isLoading) return <div>Loading</div>;
   if (error) return <div>Request Failed</div>;

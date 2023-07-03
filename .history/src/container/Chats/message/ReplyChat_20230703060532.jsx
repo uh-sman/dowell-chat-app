@@ -2,7 +2,6 @@ import { useState, useContext } from "react";
 import user from "../../../assets/avatar.png";
 import axios from "axios";
 import { Tooltip } from "react-tooltip";
-import { toast } from "react-hot-toast";
 import {
   FaRegPaperPlane,
   FaPaperPlane,
@@ -57,7 +56,6 @@ const ReplyChat = () => {
       ),
     onSuccess: async (res) => {
       queryClient.invalidateQueries("message");
-      toast.success("sent");
       console.log("mutated response", res);
     },
     onError: (error) => {

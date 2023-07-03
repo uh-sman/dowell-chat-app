@@ -41,14 +41,12 @@ export const AppProvider = ({ children }) => {
   });
   useEffect(() => {
     const getSessionId = async () => {
-      setLoading(true);
       const res = await axios.post(
         "https://100093.pythonanywhere.com/api/userinfo/",
         searchParams
       );
       setOrgId(res?.data?.selected_product?.orgid);
     };
-    setLoading(false);
     getSessionId();
   }, [searchParams]);
   useEffect(() => {

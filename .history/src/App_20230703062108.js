@@ -8,14 +8,12 @@ import {
   Route,
   useSearchParams,
 } from "react-router-dom";
-import { useContext } from "react";
 import { QueryClient, QueryClientProvider } from "react-query";
 import "react-tooltip/dist/react-tooltip.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import { AppProvider } from "./container/ContextProvider/DataContext";
 import ProtectedRoutes from "./container/protected/protectedRoutes";
-import ProductContext from "./container/ContextProvider/DataContext";
 import { Toaster } from "react-hot-toast";
 import Home from "./container/home";
 import { useEffect } from "react";

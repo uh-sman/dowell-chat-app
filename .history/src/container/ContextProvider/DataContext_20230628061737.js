@@ -41,14 +41,12 @@ export const AppProvider = ({ children }) => {
   });
   useEffect(() => {
     const getSessionId = async () => {
-      setLoading(true);
       const res = await axios.post(
         "https://100093.pythonanywhere.com/api/userinfo/",
         searchParams
       );
       setOrgId(res?.data?.selected_product?.orgid);
     };
-    setLoading(false);
     getSessionId();
   }, [searchParams]);
   useEffect(() => {
@@ -68,7 +66,7 @@ export const AppProvider = ({ children }) => {
   useEffect(() => {
     const createRooms = async () => {
       const res = await axios.get(
-        `https://100096.pythonanywhere.com/create-user-profile/?session_id=4sjl7vrpycwauvueewhqrme0u5vqnnmj`
+        `https://100096.pythonanywhere.com/create-portfolio/?session_id=4sjl7vrpycwauvueewhqrme0u5vqnnmj`
       );
       console.log("createRoom response", res);
       setUserId(res?.data?.portfolio?.userID);
@@ -91,6 +89,8 @@ export const AppProvider = ({ children }) => {
     getRooms();
   }, [chatHeader, orgId]);
 
+
+
   // useEffect(() => {
   //   const url = `https://100096.pythonanywhere.com/send_message/${room_Id}/`;
   //   const getRoomMessage = async () => {
@@ -103,6 +103,7 @@ export const AppProvider = ({ children }) => {
   //   getRoomMessage();
   // }, [room_Id]);
 
+ 
   //create a usememo for the messages data
   // const memorizedMessages = useMemo(() => messages, [messages]);
   const memorizedRooms = useMemo(() => rooms, [rooms]);

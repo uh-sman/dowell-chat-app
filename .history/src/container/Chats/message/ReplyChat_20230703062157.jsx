@@ -57,7 +57,7 @@ const ReplyChat = () => {
       ),
     onSuccess: async (res) => {
       queryClient.invalidateQueries("message");
-      toast.success("sent");
+      // toast.success("sent");
       console.log("mutated response", res);
     },
     onError: (error) => {

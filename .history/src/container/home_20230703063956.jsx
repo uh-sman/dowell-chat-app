@@ -6,7 +6,7 @@ import { Loader } from "./spinner/loader";
 const Home = () => {
   const { loading } = useContext(ProductContext);
   return loading ? (
-    <div className="d-flex justify-content-center align-items-center my-5">
+    <div className="d-flex justify-content-center align-items-center my-auto">
       <Loader />
     </div>
   ) : (
