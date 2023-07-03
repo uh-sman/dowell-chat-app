@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/dowell-chat-app/static/css/main.73077840.css",
-    "main.js": "/dowell-chat-app/static/js/main.0f387874.js",
+    "main.css": "/dowell-chat-app/static/css/main.497518db.css",
+    "main.js": "/dowell-chat-app/static/js/main.7517df5a.js",
     "static/media/male_avatar.png": "/dowell-chat-app/static/media/male_avatar.b99b397bc6824c6e0d36.png",
     "static/media/avatar.png": "/dowell-chat-app/static/media/avatar.2070048140bfe9e6de30.png",
     "index.html": "/dowell-chat-app/index.html",
-    "main.73077840.css.map": "/dowell-chat-app/static/css/main.73077840.css.map",
-    "main.0f387874.js.map": "/dowell-chat-app/static/js/main.0f387874.js.map"
+    "main.497518db.css.map": "/dowell-chat-app/static/css/main.497518db.css.map",
+    "main.7517df5a.js.map": "/dowell-chat-app/static/js/main.7517df5a.js.map"
   },
   "entrypoints": [
-    "static/css/main.73077840.css",
-    "static/js/main.0f387874.js"
+    "static/css/main.497518db.css",
+    "static/js/main.7517df5a.js"
   ]
 }
