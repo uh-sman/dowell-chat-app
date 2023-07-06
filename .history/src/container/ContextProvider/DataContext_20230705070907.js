@@ -32,16 +32,12 @@ export const AppProvider = ({ children }, session_id) => {
   let [searchParams, setSearchParams] = useSearchParams();
 
   const sessionId = {
-    session_id: "4sjl7vrpycwauvueewhqrme0u5vqnnmj",
+    // session_id: "4sjl7vrpycwauvueewhqrme0u5vqnnmj",
+    session_id: caches
+      .open("session_id")
+      .then((Cache) => Cache.addAll(["https://100093.pythonanywhere.com"])),
     // session_id: "5p8do0ht7no4gyjo0w2984o4vj5dc2hs",
-    // session_id:''
-    // session_id:
-    //   ("session_id",
-    //   caches
-    //     .open("v1")
-    //     .then((Cache) => Cache.addAll(["5p8do0ht7no4gyjo0w2984o4vj5dc2hs"]))),
   };
-
   const params = Object.fromEntries([...searchParams]);
   useEffect(() => {
     const currentParams = Object.fromEntries([...searchParams]);
@@ -79,14 +75,14 @@ export const AppProvider = ({ children }, session_id) => {
   //   );
   //   console.log("respomse", res);
   // };
-  // const { status, data, error, isLoading } = useQuery(
-  //   {
-  //     queryKey: ["session_id"],
-  //   },
-  //   {
-  //     queryFn: () => axios.get(`https://localhost:3000/?=${sessionId}`),
-  //   }
-  // );
+  const { status, data, error, isLoading } = useQuery(
+    {
+      queryKey: ["session_id"],
+    },
+    {
+      queryFn: () => axios.get(`https://localhost:3000/?`),
+    }
+  );
   useEffect(() => {
     const getNotifications = async () => {
       const res = await axios.get(
