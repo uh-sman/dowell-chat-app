@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/dowell-chat-app/static/css/main.497518db.css",
-    "main.js": "/dowell-chat-app/static/js/main.b92b149e.js",
-    "static/media/male_avatar.png": "/dowell-chat-app/static/media/male_avatar.b99b397bc6824c6e0d36.png",
-    "static/media/avatar.png": "/dowell-chat-app/static/media/avatar.2070048140bfe9e6de30.png",
-    "index.html": "/dowell-chat-app/index.html",
-    "main.497518db.css.map": "/dowell-chat-app/static/css/main.497518db.css.map",
-    "main.b92b149e.js.map": "/dowell-chat-app/static/js/main.b92b149e.js.map"
+    "main.css": "/static/css/main.497518db.css",
+    "main.js": "/static/js/main.7a92125b.js",
+    "static/media/male_avatar.png": "/static/media/male_avatar.b99b397bc6824c6e0d36.png",
+    "static/media/avatar.png": "/static/media/avatar.2070048140bfe9e6de30.png",
+    "index.html": "/index.html",
+    "main.497518db.css.map": "/static/css/main.497518db.css.map",
+    "main.7a92125b.js.map": "/static/js/main.7a92125b.js.map"
   },
   "entrypoints": [
     "static/css/main.497518db.css",
-    "static/js/main.b92b149e.js"
+    "static/js/main.7a92125b.js"
   ]
 }
