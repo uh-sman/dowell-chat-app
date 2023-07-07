@@ -16,12 +16,12 @@ const Buttons = ({ onSetChatHeader }) => {
   //   setChatHeader("Login");
   //   setIsActive("Login");
   // }, []);
-  // const { data, status } = useQuery(["message"], () => {
-  //   setChatHeader("Login");
-  //   setActive("Login");
-  // });
+  const { data, status } = useQuery(["message"], () => {
+    setChatHeader();
+    setActive("Login");
+  });
 
-  // console.log(data);
+  console.log(data);
   const buttonStyles = (title) => {
     switch (title) {
       case "Login":

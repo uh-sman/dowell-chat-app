@@ -67,8 +67,8 @@ export const AppProvider = ({ children }, session_id) => {
           session_id: Id,
         }
       );
-      // console.log("res", res);
-      setUserInfo(res?.data?.userinfo);
+      console.log("res", res);
+      // setUserInfo(res?.data?.userinfo);
     };
     getSessionIds();
   }, [Id, room_Id]);

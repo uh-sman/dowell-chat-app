@@ -33,7 +33,7 @@ const Message = () => {
     () => getRoomMessage(room_Id),
     [room_Id]
   );
-  setId(data?.messages?.[0]?.author?.session_id);
+  console.log("session_id", data?.messages?.[0]?.author?.session_id);
   // const { mutate } = useMutation();
   console.log("data", data);
   if (isLoading) return <div>Loading</div>;

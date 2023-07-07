@@ -67,12 +67,12 @@ export const AppProvider = ({ children }, session_id) => {
           session_id: Id,
         }
       );
-      // console.log("res", res);
-      setUserInfo(res?.data?.userinfo);
+      console.log("res", res);
+      // setUserInfo(res?.data?.userinfo);
     };
     getSessionIds();
   }, [Id, room_Id]);
-  console.log("is", Id);
+
   // const getNotifications = async () => {
   //   const res = await axios.get(
   //     "https://100092.pythonanywhere.com/api/v1/notifications/products/"
