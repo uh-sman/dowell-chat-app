@@ -24,7 +24,7 @@ export const AppProvider = ({ children }, session_id) => {
   const [userId, setUserId] = useState("" | null);
   const [room, setRoom] = useState([]);
   const [message, setMessage] = useState();
-  const [room_Id, setRoom_Id] = useState("" | "221");
+  const [room_Id, setRoom_Id] = useState("");
   const [roomsId, setRoomsId] = useState();
   const [orgId, setOrgId] = useState("");
   const [Id, setId] = useState("");
@@ -79,11 +79,15 @@ export const AppProvider = ({ children }, session_id) => {
         session_id: Id,
       }
     );
-    console.log("res", res);
-    setUserInfo(res?.data?.userinfo);
+    // console.log("res", res);
+    // setUserInfo(res?.data?.userinfo);
   };
-
-  // console.log("data from session_id", data);
+  const { data } = useQuery(
+    ["getSessionId", room_Id, Id],
+    () => getSessionIds(),
+    [room_Id, Id]
+  );
+  console.log("data from session_id", data);
   // const getNotifications = async () => {
   //   const res = await axios.get(
   //     "https://100092.pythonanywhere.com/api/v1/notifications/products/"
@@ -193,10 +197,8 @@ export const AppProvider = ({ children }, session_id) => {
         loading,
         // memorizedMessages,
         memorizedRooms,
-        getSessionIds,
         orgId,
         userId,
-        Id,
         setId,
       }}
     >

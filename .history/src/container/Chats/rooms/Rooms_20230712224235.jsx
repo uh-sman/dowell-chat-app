@@ -22,14 +22,14 @@ const Rooms = ({ results }, index) => {
   //  );
   // console.log("results", rooms);
   const [roomId, setRoomId] = useState();
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState(true);
   const style = {
     opacity: 50,
   };
   // console.log(roomId);
   const setIds = (room_id) => {
     // setRoomId(room_id);
-    setRoom_Id(room_id);
+    setRoom_Id(room_id || "3026");
     // getRooms(room_Id);
   };
   // useEffect(() => {
@@ -57,7 +57,7 @@ const Rooms = ({ results }, index) => {
                 className="d-flex mx-2"
                 onClick={() => {
                   setIds(room_id);
-                  setActive(!active, room_id);
+                  setActive(room_id);
                 }}
               >
                 <figure className="d-flex ">

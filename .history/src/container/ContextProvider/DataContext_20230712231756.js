@@ -24,7 +24,7 @@ export const AppProvider = ({ children }, session_id) => {
   const [userId, setUserId] = useState("" | null);
   const [room, setRoom] = useState([]);
   const [message, setMessage] = useState();
-  const [room_Id, setRoom_Id] = useState("" | "221");
+  const [room_Id, setRoom_Id] = useState("" ?? "3026");
   const [roomsId, setRoomsId] = useState();
   const [orgId, setOrgId] = useState("");
   const [Id, setId] = useState("");

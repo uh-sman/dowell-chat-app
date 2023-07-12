@@ -14,8 +14,8 @@ const ChatIcons = () => {
         `https://100096.pythonanywhere.com/delete-customer-support-room/?session_id=${sessionId.session_id}&room_id=${room_Id}`
       );
       console.log("deleted", del);
-    } catch (error) {
-      console.log(error.status);
+    } catch (e) {
+      console.log(e);
     }
   };
   return (
@@ -42,7 +42,7 @@ const ChatIcons = () => {
           className="text-primary fs-6"
           data-tooltip-id="my-tooltip"
           data-tooltip-content="Delete conversation"
-          onClick={delChatRoom}
+          onClick={handleDeleteChat}
         >
           <FaTrashAlt />
           <Tooltip id="my-tooltip" />

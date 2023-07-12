@@ -57,7 +57,7 @@ const Rooms = ({ results }, index) => {
                 className="d-flex mx-2"
                 onClick={() => {
                   setIds(room_id);
-                  setActive(!active, room_id);
+                  setActive(room_id);
                 }}
               >
                 <figure className="d-flex ">

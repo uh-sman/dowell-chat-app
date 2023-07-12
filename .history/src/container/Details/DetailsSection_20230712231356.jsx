@@ -50,9 +50,7 @@ const DetailsSection = ({ title, about }) => {
               <DetailsSectionButton />
             </div>
             {/* DETAILS */}
-            <AboutDetails
-            // data={data}
-            />
+            <AboutDetails data={data} />
           </div>
         </div>
       </div>

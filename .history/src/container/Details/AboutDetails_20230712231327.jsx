@@ -12,7 +12,7 @@ import { FaCaretSquareUp, FaRegEnvelope } from "react-icons/fa";
 import { BiWorld, BiLike } from "react-icons/bi";
 import { HiHome } from "react-icons/hi";
 import { AiFillHome } from "react-icons/ai";
-const AboutDetails = ({ title, ux }) => {
+const AboutDetails = ({ title, ux, data }) => {
   const { userInfo } = useContext(ProductContext);
   // const data = [
   //   {

@@ -12,15 +12,15 @@ import { FaCaretSquareUp, FaRegEnvelope } from "react-icons/fa";
 import { BiWorld, BiLike } from "react-icons/bi";
 import { HiHome } from "react-icons/hi";
 import { AiFillHome } from "react-icons/ai";
-const AboutDetails = ({ title, ux }) => {
+const AboutDetails = ({ title, ux, data }) => {
   const { userInfo } = useContext(ProductContext);
-  // const data = [
-  //   {
-  //     phone: "Phone Number",
-  //     email: "Email",
-  //     web: "Website",
-  //   },
-  // ];
+  const data = [
+    {
+      phone: "Phone Number",
+      email: "Email",
+      web: "Website",
+    },
+  ];
   return (
     <div
       className="container"
@@ -36,7 +36,7 @@ const AboutDetails = ({ title, ux }) => {
                 <small>
                   <FaPhone className="fw-bold fs-6" /> +{" "}
                   <span className="" style={{ fontSize: "13px" }}>
-                    {userInfo?.phone}
+                    {data?.phone}
                   </span>
                 </small>
               </li>
@@ -44,7 +44,7 @@ const AboutDetails = ({ title, ux }) => {
                 <small className="d-flex gap-2 align-items-center">
                   <FaRegEnvelope className="fw-bold fs-6" /> +{" "}
                   <span className="" style={{ fontSize: "13px" }}>
-                    {userInfo?.email}
+                    {data?.email}
                   </span>
                 </small>
               </li>
@@ -52,7 +52,7 @@ const AboutDetails = ({ title, ux }) => {
                 <small>
                   <BiWorld className="fw-bold fs-5" /> +{" "}
                   <span className="" style={{ fontSize: "13px" }}>
-                    {userInfo?.userBrowser}
+                    {data?.userBrowser}
                   </span>
                 </small>
               </li>
@@ -61,7 +61,7 @@ const AboutDetails = ({ title, ux }) => {
                   {/* <AiFillHome /> + Address */}
                   <HiHome className="fw-bold fs-5" /> +{" "}
                   <span className="" style={{ fontSize: "13px" }}>
-                    {userInfo?.user_country}
+                    {data?.user_country}
                   </span>
                 </small>
               </li>
@@ -78,8 +78,7 @@ const AboutDetails = ({ title, ux }) => {
           <div className="">
             <ul>
               <li style={{ color: "#94a3b8" }}>
-                <FaRegThumbsUp className="fw-bold fs-6" />{" "}
-                {userInfo?.dowell_time}
+                <FaRegThumbsUp className="fw-bold fs-6" /> {data?.dowell_time}
                 {/* date from the api */}
               </li>
               <li style={{ color: "#94a3b8" }}>
@@ -93,7 +92,7 @@ const AboutDetails = ({ title, ux }) => {
               </li>
               <li style={{ color: "#94a3b8" }}>
                 <FaLocationArrow className="fw-bold fs-6" /> From
-                <span> {userInfo?.user_country}</span>
+                <span> {data?.user_country}</span>
               </li>
             </ul>
           </div>

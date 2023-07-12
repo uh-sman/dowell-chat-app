@@ -42,7 +42,7 @@ const ReplyChat = () => {
       org_id: orgId,
     };
     mutate(data);
-    setInput("");
+    setData("");
 
     // axios.post(
     //   `https://100096.pythonanywhere.com/send_message/${room_Id}/`,

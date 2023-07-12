@@ -13,8 +13,8 @@ const Buttons = ({ onSetChatHeader }) => {
   const [active, setActive] = useState();
 
   useEffect(() => {
-    setChatHeader("Extension");
-    setIsActive("Extension");
+    setChatHeader("Login");
+    setIsActive("Login");
   }, []);
   // const { data, status } = useQuery(["message"], () => {
   //   setChatHeader("Login");

@@ -24,7 +24,7 @@ export const AppProvider = ({ children }, session_id) => {
   const [userId, setUserId] = useState("" | null);
   const [room, setRoom] = useState([]);
   const [message, setMessage] = useState();
-  const [room_Id, setRoom_Id] = useState("" | "221");
+  const [room_Id, setRoom_Id] = useState("");
   const [roomsId, setRoomsId] = useState();
   const [orgId, setOrgId] = useState("");
   const [Id, setId] = useState("");
@@ -59,31 +59,20 @@ export const AppProvider = ({ children }, session_id) => {
     setLoading(false);
     getSessionId();
   }, [searchParams]);
-  // useEffect(() => {
-  //   const getSessionIds = async () => {
-  //     const res = await axios.post(
-  //       "https://100093.pythonanywhere.com/api/userinfo/",
-  //       {
-  //         session_id: Id,
-  //       }
-  //     );
-  //     // console.log("res", res);
-  //     setUserInfo(res?.data?.userinfo);
-  //   };
-  //   getSessionIds();
-  // }, [Id, room_Id]);
-  const getSessionIds = async () => {
-    const res = await axios.post(
-      "https://100093.pythonanywhere.com/api/userinfo/",
-      {
-        session_id: Id,
-      }
-    );
-    console.log("res", res);
-    setUserInfo(res?.data?.userinfo);
-  };
-
-  // console.log("data from session_id", data);
+  useEffect(() => {
+    const getSessionIds = async () => {
+      const res = await axios.post(
+        "https://100093.pythonanywhere.com/api/userinfo/",
+        {
+          session_id: Id,
+        }
+      );
+      // console.log("res", res);
+      setUserInfo(res?.data?.userinfo);
+    };
+    getSessionIds();
+  }, [Id, room_Id]);
+  console.log("is", Id);
   // const getNotifications = async () => {
   //   const res = await axios.get(
   //     "https://100092.pythonanywhere.com/api/v1/notifications/products/"
@@ -193,10 +182,8 @@ export const AppProvider = ({ children }, session_id) => {
         loading,
         // memorizedMessages,
         memorizedRooms,
-        getSessionIds,
         orgId,
         userId,
-        Id,
         setId,
       }}
     >

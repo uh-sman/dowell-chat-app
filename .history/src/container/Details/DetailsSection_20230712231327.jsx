@@ -14,10 +14,10 @@ const DetailsSection = ({ title, about }) => {
   useEffect(() => {
     getSessionIds(Id);
   }, [Id]);
-  // console.log("data", data);
-  // if (isLoading) return <div>Loading</div>;
-  // if (error) return <div>Request Failed</div>;
-  // console.log(data, "from details section");
+  console.log("data", data);
+  if (isLoading) return <div>Loading</div>;
+  if (error) return <div>Request Failed</div>;
+  console.log(data, "from details section");
   return (
     <div className="container w-100 d-none d-md-none d-lg-none d-xl-block d-xxl-block">
       <div className=" " style={{ width: "auto", height: "100%" }}>
@@ -50,9 +50,7 @@ const DetailsSection = ({ title, about }) => {
               <DetailsSectionButton />
             </div>
             {/* DETAILS */}
-            <AboutDetails
-            // data={data}
-            />
+            <AboutDetails data={data} />
           </div>
         </div>
       </div>

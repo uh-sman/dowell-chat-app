@@ -14,8 +14,8 @@ const ChatIcons = () => {
         `https://100096.pythonanywhere.com/delete-customer-support-room/?session_id=${sessionId.session_id}&room_id=${room_Id}`
       );
       console.log("deleted", del);
-    } catch (error) {
-      console.log(error.status);
+    } catch (e) {
+      console.log(e);
     }
   };
   return (

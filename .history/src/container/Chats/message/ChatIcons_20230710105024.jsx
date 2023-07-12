@@ -15,7 +15,7 @@ const ChatIcons = () => {
       );
       console.log("deleted", del);
     } catch (error) {
-      console.log(error.status);
+      console.log(error.status.message);
     }
   };
   return (

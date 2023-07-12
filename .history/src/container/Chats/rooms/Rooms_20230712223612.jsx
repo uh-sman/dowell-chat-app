@@ -22,14 +22,14 @@ const Rooms = ({ results }, index) => {
   //  );
   // console.log("results", rooms);
   const [roomId, setRoomId] = useState();
-  const [active, setActive] = useState("");
+  const [active, setActive] = useState(true);
   const style = {
     opacity: 50,
   };
   // console.log(roomId);
   const setIds = (room_id) => {
     // setRoomId(room_id);
-    setRoom_Id(room_id);
+    setRoom_Id(room_id || "3026");
     // getRooms(room_Id);
   };
   // useEffect(() => {
@@ -50,15 +50,9 @@ const Rooms = ({ results }, index) => {
             return (
               <button
                 key={room_id}
-                style={{
-                  border: "none",
-                  background: active ? style : "transparent",
-                }}
+                style={{ border: "none", background: "transparent" }}
                 className="d-flex mx-2"
-                onClick={() => {
-                  setIds(room_id);
-                  setActive(!active, room_id);
-                }}
+                onClick={() => setIds(room_id, setActive(!active))}
               >
                 <figure className="d-flex ">
                   <img
